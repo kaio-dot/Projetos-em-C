@@ -1,0 +1,39 @@
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int num1, num2, resultado;
+    char operador;
+    
+    printf("Digite o primeiro número:\n");
+        scanf("%d", &num1);
+    printf("Digite o segundo número:\n");
+        scanf("%d", &num2);
+    printf("Qual operação deseja fazer?\n");
+        printf("Adição(Pressione '+')\n");
+        printf("Subtração(Pressione '-')\n");
+        printf("Multiplicação(Pressione '*')\n");
+        printf("Divisão(Pressione '/')\n");
+        scanf(" %c", &operador);
+        //fflush(stdout);
+        if(operador == '+'){
+            resultado = num1 + num2;
+        }
+        else if(operador == '-'){
+            resultado = num1 - num2;
+        }
+        else if(operador == '*'){
+            resultado = num1*num2;
+        }
+        else if(operador == '/'){
+            resultado = num1/num2;
+        }
+        else{
+            printf("Operador Inválido!");
+        }
+        
+        printf("O resultado é: %d", resultado);
+
+    return 0;
+}
