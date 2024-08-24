@@ -1,0 +1,34 @@
+    #include <stdio.h>
+
+int main(){
+
+    int com[10];
+    int valorTotalVendas[10];
+    char vendedor[10][20];
+    double valorCcomissao, totalVendas=0.0;
+    int maiorValor=0, menorValor=0;
+
+    for(int i=0;i<10;i++){
+        printf("Informacoes do vendedor %d\n", i+1);
+            scanf("%d %d %s", &com[i], &valorTotalVendas[i], vendedor[i]);
+
+            totalVendas += valorTotalVendas[i];
+
+                if(valorTotalVendas[i]> valorTotalVendas[maiorValor]){
+                    maiorValor = i;
+                }
+                else if(valorTotalVendas[i]<valorTotalVendas[menorValor]){
+                    menorValor = i;
+                }
+
+                valorCcomissao = (valorTotalVendas[i] * com[i]) / 100.0;
+        printf("O(A) vendedor(a) %s vendeu um total de R$%d e o valor referente a sua comissão é: R$%.2lf\n", vendedor[i], valorTotalVendas[i], valorCcomissao);
+    }
+
+    printf("O valor total de todos os vendedores é de: R$%lf", totalVendas);
+    printf("O maior valor foi de %.2lf do %s\n", valorTotalVendas[maiorValor], vendedor[maiorValor]);
+    printf("O menor valor foi de %.2lf do %s\n", valorTotalVendas[menorValor], vendedor[menorValor]);
+
+
+return 0;
+}
