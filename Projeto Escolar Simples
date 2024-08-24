@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main(){
+    char nomeAluno[7][20];
+    double mediaFinal[7];
+    int maiorMedia=0;
+    double notaRecuperacao;
+
+    for(int i=0;i<7;i++){
+        printf("Digite o nome do aluno e sua média:\n");
+        scanf("%s %lf", nomeAluno[i], &mediaFinal[i]);
+            if(mediaFinal[i]>mediaFinal[maiorMedia]){
+                    maiorMedia=i;
+            }
+    }
+            printf("A maior media eh do  %s e foi %.1lf.\n", nomeAluno[maiorMedia], mediaFinal[maiorMedia]);
+
+            for(int i=0;i<7;i++){
+                if(mediaFinal[i]<7){
+                    notaRecuperacao = (10.0 - mediaFinal[i]);
+                    if(notaRecuperacao<5.0){
+                        notaRecuperacao = 5.0;
+                    }
+                    printf("O aluno %s precisa tirar %.1lf para ser aprovado.\n", nomeAluno[i], notaRecuperacao);
+                }
+            }
+
+return 0;
+}
