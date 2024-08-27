@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    int vetor1[10], vetor2[5];
+    int resultante1[10] = {0};
+    int resultante2[10] = {0};
+
+
+    printf("Digite 10 números inteiros para o primeiro vetor:\n");
+    for (int i = 0; i < 10; i++) {
+        scanf("%d", &vetor1[i]);
+    }
+
+
+    printf("Digite 5 números inteiros para o segundo vetor:\n");
+    for (int j = 0; j < 5; j++) {
+        scanf("%d", &vetor2[j]);
+    }
+
+
+    for (int i = 0; i < 10; i++) {
+        if (vetor1[i] % 2 == 0) {
+            int soma = 0;
+            for (int j = 0; j < 5; j++) {
+                soma += vetor2[j];
+            }
+            resultante1[i] = vetor1[i] + soma;
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        if (vetor1[i] % 2 != 0) {
+            int contador = 0;
+            for (int j = 0; j < 5; j++) {
+                if (vetor1[i] % vetor2[j] == 0) {
+                    contador++;
+                }
+            }
+            resultante2[i] = contador;
+        }
+    }
+
+    printf("Primeiro vetor resultante (soma de números pares do primeiro vetor com todos os números do segundo vetor):\n");
+    for (int i = 0; i < 10; i++) {
+            if(resultante1[i]!=0){
+        printf("%d ", resultante1[i]);
+            }
+    }
+    printf("\n");
+
+    printf("Segundo vetor resultante (quantidade de divisores dos números ímpares do primeiro vetor no segundo vetor):\n");
+    for (int i = 0; i < 10; i++) {
+                if(resultante2[i]!=0){
+                    printf("%d ", resultante2[i]);
+                }
+    }
+    printf("\n");
+
+    return 0;
+}
