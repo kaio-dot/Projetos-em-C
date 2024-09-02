@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+
+int main(){
+    setlocale(LC_ALL, "");
+    char nomeAluno[50][50];
+    double primeiraNota[6], segundaNota[6];
+    double mediaClasse=0, mediaAluno[6], percentualAprovado, percentualReprovado, percentualExame;
+    int  alunosAprovados=0, alunosReprovados=0, alunosExame=0;
+
+    for(int i=0;i<6;i++){
+        printf("Digite o nome do %d aluno:\n", i+1);
+            scanf("%s", &nomeAluno[i]);
+        printf("Digite suas duas notas:\n");
+            scanf("%lf %lf", &primeiraNota[i], &segundaNota[i]);
+            printf("\n");
+                mediaAluno[i]=(primeiraNota[i]+segundaNota[i])/2.0;
+                    if(mediaAluno[i]>=7){
+                        alunosAprovados++;
+                    }
+                    else if(mediaAluno[i]>5 && mediaAluno[i]<7){
+                        alunosExame++;
+                    }
+                    else{
+                        alunosReprovados++;
+                    }
+                    mediaClasse+=mediaAluno[i];
+    }
+
+
+    printf("| ALUNO |  1º PROVA |  2º PROVA | MÉDIA | SITUAÇÃO |\n");
+
+    for(int j=0;j<6;j++){
+            if(mediaAluno[j]>7){
+        printf("| %s  |  %.1lf  |  %.1lf  |  %.1lf  | APROVADO |\n", nomeAluno[j], primeiraNota[j], segundaNota[j], mediaAluno[j]);
+            }
+            else{
+        printf("| %s  |  %.1lf  |  %.1lf  |  %.1lf  | REPROVADO|\n", nomeAluno[j], primeiraNota[j], segundaNota[j], mediaAluno[j]);
+            }
+    }
+
+   percentualAprovado=((float)alunosAprovados/6)*100;
+   percentualReprovado=((float)alunosReprovados/6)*100;
+   percentualExame=((float)alunosExame/6)*100;
+
+   printf("\n");
+printf("A média da classe é: %.1lf\n", mediaClasse);
+printf("O percentual de alunos aprovados é: %.1lf\n", percentualAprovado);
+printf("O percentual de alunos em exame é: %.1lf \n", percentualExame);
+printf("O percentual de alunos reprovados é: %.1lf\n", percentualReprovado);
+
+
+
+    return 0;
+}
